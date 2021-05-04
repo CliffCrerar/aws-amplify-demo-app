@@ -1,0 +1,63 @@
+type PermissionRole @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  permissionId: String
+  RoleId: String
+  deactivatedDate: AWSDate
+  active: Boolean
+  modifiedDate: AWSDate
+  createDate: AWSTimestamp
+}
+
+type Organisations @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  parentOrganisation: String
+  createDate: AWSTimestamp
+  active: Boolean
+  deactivatedDate: AWSDate
+  modifiedDate: AWSDate
+}
+
+type Permissions @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Permission: String
+  AccessDefinition: String
+  active: Boolean
+  deactivatedDate: AWSDate
+  createDate: AWSDate
+  modifiedDate: AWSDate
+}
+
+type Contacts @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  lastName: String
+  roleId: Int
+  email: AWSEmail
+  active: Boolean
+  deactivatedDate: AWSDateTime
+  modifedDate: AWSDateTime
+  createdDate: AWSTimestamp
+}
+
+type Role @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  RoleName: String
+  active: Boolean
+  deactivatedDate: AWSDate
+}
+
+type ContactsRole @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  contactId: String
+  roleId: String
+  active: Date
+  deactivatedDate: AWSDate
+  modifiedDate: AWSDate
+  deleteDate: AWSDate
+  createdDate: AWSTimestamp
+}
+
+type Date {
+  active: Boolean
+}
